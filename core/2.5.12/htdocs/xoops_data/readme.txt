@@ -13,7 +13,8 @@ For XOOPS data
   data/
   protector/
 
-Note: These directories should already exist, and should have been copied in from the installation archive. There are critical files included in that copy.
+Note: These directories should already exist, and should have been copied in from the
+installation archive. There are critical files included in that copy.
 
 For full documentation on installing or upgrading XOOPS please see:
 https://xoops.gitbook.io/xoops-install-upgrade/
