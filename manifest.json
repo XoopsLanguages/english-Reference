@@ -40,6 +40,33 @@
       "updated": "2026-05-04",
       "download": "https://github.com/XoopsLanguages/english-Reference/releases/download/latest/english-Reference-core-2.7.0.zip",
       "manifest_url": "https://raw.githubusercontent.com/XoopsLanguages/english-Reference/master/manifest.json"
+    },
+    "2.7.3": {
+      "lifecycle": "active",
+      "coverage": 0.0,
+      "provided": 0,
+      "required": 0,
+      "updated": "2026-09-13",
+      "download": "https://github.com/XoopsLanguages/english-Reference/releases/download/latest/english-Reference-core-2.7.3.zip",
+      "manifest_url": "https://raw.githubusercontent.com/XoopsLanguages/english-Reference/master/manifest.json"
+    },
+    "2.7.4": {
+      "lifecycle": "active",
+      "coverage": 0.0,
+      "provided": 0,
+      "required": 0,
+      "updated": "2026-09-13",
+      "download": "https://github.com/XoopsLanguages/english-Reference/releases/download/latest/english-Reference-core-2.7.4.zip",
+      "manifest_url": "https://raw.githubusercontent.com/XoopsLanguages/english-Reference/master/manifest.json"
+    },
+    "2.8.0": {
+      "lifecycle": "active",
+      "coverage": 0.0,
+      "provided": 0,
+      "required": 0,
+      "updated": "2026-09-13",
+      "download": "https://github.com/XoopsLanguages/english-Reference/releases/download/latest/english-Reference-core-2.8.0.zip",
+      "manifest_url": "https://raw.githubusercontent.com/XoopsLanguages/english-Reference/master/manifest.json"
     }
   },
   "modules": {},
