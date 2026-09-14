@@ -1,0 +1,849 @@
+LANGUAGE DIFFERENCES
+=====================
+
+Below are language differences from a version to next version.
+
+
+================================
+2026/09: Version 2.7.4-Beta2
+================================
+/htdocs/modules/profile/language/english/admin.php
+- added define('_PROFILE_AM_DELETE_FAILED', 'Deleting %s failed; the account was not removed');
+
+/htdocs/modules/system/language/english/admin/preferences.php
+- added define('_MD_AM_TWOFACTORMODE', 'Two-factor authentication');
+- added define('_MD_AM_TWOFACTORMODEDSC', 'Off pauses every second-factor challenge while keeping each member\'s enrolment. Optional lets members enrol an authenticator app or e-mail codes, and challenges members who have enrolled.');
+- added define('_MD_AM_TWOFACTORMODE_OFF', 'Off (paused)');
+- added define('_MD_AM_TWOFACTORMODE_OPTIONAL', 'Optional');
+
+/htdocs/language/english/user2fa.php (new file)
+- added define('_US_2FA_HTTP_LOGIN', 'This popup cannot complete a two-factor login over HTTP because your password would be sent without encryption. Use the site login instead, or ask the administrator to enable HTTPS for the site.');
+- added define('_US_2FA_TITLE', 'Second step');
+- added define('_US_2FA_PROMPT', 'Enter the code from your authenticator app');
+- added define('_US_2FA_CODE', 'Authenticator code');
+- added define('_US_2FA_PROMPT_EMAIL', 'We sent a six-digit code to %s. Enter it below.');
+- added define('_US_2FA_CODE_EMAIL', 'Code from your e-mail');
+- added define('_US_2FA_SEND', 'Send a new code');
+- added define('_US_2FA_SENT', 'A new code was sent to %s. It is valid for ten minutes.');
+- added define('_US_2FA_SEND_WAIT', 'A code was sent less than a minute ago. Check your inbox and spam folder before requesting another one.');
+- added define('_US_2FA_SEND_FAILED', 'The code could not be sent right now. Try again in a moment, or use a recovery code.');
+- added define('_US_2FA_EMAIL_SUBJECT', '%s: your sign-in code');
+- added define('_US_2FA_EMAIL_BODY', 'Your sign-in code for %s is:\n\n%s\n\nIt is valid for %d minutes and works once. If you did not request it, ignore this message and consider changing your password.');
+- added define('_US_2FA_RECOVERY', 'Use a recovery code instead');
+- added define('_US_2FA_RECOVERY_HINT', 'Each recovery code works once. Using one sends you an e-mail.');
+- added define('_US_2FA_SUBMIT', 'Continue');
+- added define('_US_2FA_STARTAGAIN', 'This sign-in has expired or was interrupted. Please start again.');
+- added define('_US_2FA_BACKTOLOGIN', 'Back to the login form');
+- added define('_US_2FA_BADCODE', 'That code was not accepted.');
+- added define('_US_2FA_LOCKED', 'Too many attempts. The second step is locked for fifteen minutes; a recovery code still works.');
+- added define('_US_2FA_UNAVAILABLE', 'The second step is not available right now. A recovery code still works, or contact the site administrator.');
+- added define('_US_2FA_REQUIRED', 'This account has two-factor authentication enabled. Please sign in through the site\'s login page.');
+- added define('_US_2FA_LOCKED_MAIL_SUBJECT', '%s: second step locked');
+- added define('_US_2FA_LOCKED_MAIL_BODY', 'Five wrong second-step codes were entered for your account at %s from %s. The second step is locked for fifteen minutes. If this was not you, change your password.');
+- added define('_US_2FA_RECOVERY_MAIL_SUBJECT', '%s: a recovery code was used');
+- added define('_US_2FA_RECOVERY_MAIL_BODY', 'A recovery code was used to sign in to your account at %s from %s. That code no longer works. If this was not you, change your password and reset your recovery codes.');
+
+/htdocs/language/english/user2famanage.php (new file)
+- added define('_US_2FAM_TITLE', 'Two-factor authentication');
+- added define('_US_2FAM_PASSWORD', 'Your current password');
+- added define('_US_2FAM_ENABLE', 'Set up an authenticator');
+- added define('_US_2FAM_CONFIRM', 'Confirm authenticator');
+- added define('_US_2FAM_CHOOSE', 'Choose how you want to receive your second step: an authenticator app, or a code by e-mail.');
+- added define('_US_2FAM_ENABLE_EMAIL', 'Use e-mail codes');
+- added define('_US_2FAM_EMAIL_HELP', 'E-mail codes: a six-digit code is sent to %s each time you sign in. Less secure than an authenticator app, because anyone who can read your e-mail can pass this step.');
+- added define('_US_2FAM_EMAIL_STEP', 'We sent a six-digit code to %s. Enter it below to confirm. It is valid for ten minutes.');
+- added define('_US_2FAM_CONFIRM_EMAIL', 'Confirm e-mail codes');
+- added define('_US_2FAM_CODE_HELP_EMAIL', 'The six-digit code from the e-mail we just sent you.');
+- added define('_US_2FAM_ENABLED_EMAIL', 'E-mail codes are enrolled. To make a change, enter your current password and the code we e-mail you, or a recovery code. Use the button below to request a code.');
+- added define('_US_2FAM_SEND', 'Send me a code');
+- added define('_US_2FAM_MANUAL', 'Manual setup key');
+- added define('_US_2FAM_SCAN', 'QR code for your authenticator app');
+- added define('_US_2FAM_STEP_APP', 'You need an authenticator: any app or password manager that generates time-based one-time codes (TOTP) will work, on your phone or computer. If you do not have one yet, install one of your choice first (e.g. Google Authenticator, Microsoft Authenticator, Aegis or FreeOTP).');
+- added define('_US_2FAM_STEP_ADD', 'In the app, add an account: scan this QR code, or choose manual entry and type the setup key shown below it.');
+- added define('_US_2FAM_STEP_CODE', 'The app now shows a six-digit code that changes every 30 seconds. Type the code it shows right now into the field below and confirm.');
+- added define('_US_2FAM_CODE_HELP', 'The six-digit code your authenticator app shows right now.');
+- added define('_US_2FAM_HTTP', 'This connection uses plain HTTP. Your password, session, authenticator setup key and recovery codes can be intercepted. Use HTTPS whenever possible.');
+- added define('_US_2FAM_CODES', 'Save these recovery codes now');
+- added define('_US_2FAM_CODES_HELP', 'Each code works once. These codes will not be displayed again. Keep them somewhere safe, separate from this account.');
+- added define('_US_2FAM_DISABLE', 'Disable two-factor authentication');
+- added define('_US_2FAM_REGENERATE', 'Replace recovery codes');
+- added define('_US_2FAM_ENABLED', 'An authenticator is enrolled. Enter your current password and an authenticator or recovery code to make a change.');
+- added define('_US_2FAM_DISABLED', 'Two-factor authentication is disabled.');
+- added define('_US_2FAM_PAUSED', 'The site has paused two-factor challenges. Your factor is kept, and remember-me remains unavailable for enrolled accounts.');
+- added define('_US_2FAM_UNAVAILABLE', 'Two-factor setup or management is unavailable. Please contact the site administrator.');
+- added define('_US_2FAM_STARTAGAIN', 'Setup expired or the account changed. Enter your password to start setup again.');
+- added define('_US_2FAM_BADPASSWORD', 'Your current password was not accepted.');
+- added define('_US_2FAM_RESET', 'Reset this user’s two-factor authentication');
+- added define('_US_2FAM_STATUS_NONE', 'Not enrolled');
+- added define('_US_2FAM_STATUS_TOTP', 'Authenticator app enrolled');
+- added define('_US_2FAM_STATUS_EMAIL', 'E-mail codes enrolled');
+- added define('_US_2FAM_STATUS_UNAVAILABLE', 'Status unavailable');
+- added define('_US_2FAM_RESET_HELP', 'This disables the user’s second factor, whichever method they enrolled, and revokes their recovery codes and remember-me cookies. Existing signed-in sessions remain active. Enter your own administrator password to confirm.');
+- added define('_US_2FAM_RESET_DONE', 'The user’s two-factor authentication was reset.');
+- added define('_US_2FAM_BACK', 'Back to account');
+- added define('_US_2FAM_DONE', 'Two-factor authentication is enabled.');
+- added define('_US_2FAM_REPLACED', 'Previous recovery codes have been revoked.');
+- added define('_US_2FAM_NOTICE_SUBJECT', '%s: two-factor authentication changed');
+- added define('_US_2FAM_NOTICE_BODY', 'Two-factor authentication or recovery codes were changed for your account at %s from %s. If this was not you, contact the site administrator.');
+- added define('_US_2FAM_RESET_SUBJECT', '%s: an administrator reset your two-factor authentication');
+- added define('_US_2FAM_RESET_BODY', 'An administrator disabled your second factor and revoked its recovery codes at %s from %s. Existing signed-in sessions remain active. Sign in and set up two-factor authentication again. Contact the site administrator if this was unexpected.');
+
+/upgrade/language/english/twofactor.php (new file)
+- added define('_XOOPS_UPGRADE_TWOFACTOR_SODIUM_OK', 'Sodium is available for two-factor authentication.');
+- added define('_XOOPS_UPGRADE_TWOFACTOR_SODIUM_MISSING', 'Two-factor authentication requires the PHP sodium extension. Enable it for the web server and reload this page. Without it, setup and authenticator-code verification are unavailable; enrolled users need a recovery code or an administrator reset. Upgrading can continue with two-factor authentication off.');
+
+/htdocs/install/language/english/twofactor.php
+- added define('TWOFACTOR_SODIUM', 'Sodium extension: required for two-factor authentication');
+- added define('TWOFACTOR_SODIUM_MSG', 'Enable the PHP sodium extension for the web server and reload this page before enabling two-factor authentication. Without it, setup and authenticator-code verification are unavailable. Installation can continue with two-factor authentication off.');
+
+================================
+2026/09: Version 2.7.4-Beta1
+================================
+/htdocs/modules/system/language/english/menus/menus.php (new file — front-end labels of the default system menu)
+- moved from /htdocs/modules/system/language/english/admin/menus.php, values unchanged:
+  define('MENUS_HOME', 'Home');
+  define('MENUS_ADMIN', 'Administration');
+  define('MENUS_ACCOUNT', 'Account');
+  define('MENUS_ACCOUNT_EDIT', 'Edit Account');
+  define('MENUS_ACCOUNT_LOGIN', 'Login');
+  define('MENUS_ACCOUNT_LOGOUT', 'Logout');
+  define('MENUS_ACCOUNT_REGISTER', 'Sign Up');
+  define('MENUS_ACCOUNT_MESSAGES', 'Messages');
+  define('MENUS_ACCOUNT_NOTIFICATIONS', 'Notifications');
+  define('MENUS_ACCOUNT_TOOLBAR', 'Toolbar');
+  (resolved at render time from titles seeded by include/menu_seed.php; translations go in
+  language/<lang>/menus/menus.php, see menus.dist.php)
+
+/htdocs/modules/system/language/english/admin/users.php
+- added define('_AM_SYSTEM_USERS_NO_SUCH_USER', 'No such user');
+  (used by admin/users/main.php since 2.5 but never defined; PHP 8 raised an
+  undefined-constant error instead of redirecting)
+
+================================
+2026/08: Version 2.7.3-Final
+================================
+/htdocs/language/english/user.php
+- added define('_US_SURETOLOGOUT', 'Are you sure you want to log out?');
+  (logout now asks for confirmation when the request carries no session token)
+
+================================
+2026/08: Version 2.7.3-RC1
+================================
+/htdocs/class/xoopseditor/sceditor/language/english.php (new file — SCEditor editor)
+- added define('_XOOPS_EDITOR_SCEDITOR', 'SCEditor (BBCode)');
+- added define('_XOOPS_EDITOR_SCEDITOR_STRIKE', 'Strikethrough');
+- added define('_XOOPS_EDITOR_SCEDITOR_LEFT', 'Align left');
+- added define('_XOOPS_EDITOR_SCEDITOR_CENTER', 'Align center');
+- added define('_XOOPS_EDITOR_SCEDITOR_RIGHT', 'Align right');
+- added define('_XOOPS_EDITOR_SCEDITOR_SIZE', 'Font Size');
+- added define('_XOOPS_EDITOR_SCEDITOR_SIZE_PROMPT', 'Size (%s):');
+- added define('_XOOPS_EDITOR_SCEDITOR_EMAIL', 'Email');
+- added define('_XOOPS_EDITOR_SCEDITOR_EMAIL_PROMPT', 'Email address:');
+- added define('_XOOPS_EDITOR_SCEDITOR_SITEURL', 'Site URL');
+- added define('_XOOPS_EDITOR_SCEDITOR_SITEURL_PROMPT', 'Site-relative path:');
+- added define('_XOOPS_EDITOR_SCEDITOR_QUOTE', 'Quote');
+- added define('_XOOPS_EDITOR_SCEDITOR_CODE', 'Code');
+- added define('_XOOPS_EDITOR_SCEDITOR_LIST', 'Bulleted list');
+- added define('_XOOPS_EDITOR_SCEDITOR_IMAGE', 'Image');
+- added define('_XOOPS_EDITOR_SCEDITOR_IMAGE_PROMPT', 'Image URL:');
+- added define('_XOOPS_EDITOR_SCEDITOR_YOUTUBE', 'YouTube');
+- added define('_XOOPS_EDITOR_SCEDITOR_YOUTUBE_PROMPT', 'YouTube URL or video ID:');
+- added define('_XOOPS_EDITOR_SCEDITOR_WIDTH_PROMPT', 'Width:');
+- added define('_XOOPS_EDITOR_SCEDITOR_HEIGHT_PROMPT', 'Height:');
+- added define('_XOOPS_EDITOR_SCEDITOR_WIKI', 'Wiki link');
+- added define('_XOOPS_EDITOR_SCEDITOR_WIKI_PROMPT', 'Wiki page:');
+
+================================
+2026/07: Version 2.7.1-Final
+================================
+/htdocs/themes/xbootstrap5/language/english/main.php
+- added define('THEME_COMMENT_OPTIONS', 'Comment View Options');
+  (already present in themes/xswatch5; added here for parity)
+
+Private Message constants were renamed to the standard _MD_ / _AM_ / _MI_
+prefixes. The English values are unchanged, so translators only need to
+rename the constants in their own files - no re-translation is required.
+
+/htdocs/language/english/pmsg.php
+- renamed _PM_* -> _MD_PM_* (35 constants, e.g. _PM_DELETED -> _MD_PM_DELETED)
+
+/htdocs/modules/pm/language/english/main.php
+- renamed _PM_* -> _MD_PM_* (69 constants, e.g. _PM_DELETED -> _MD_PM_DELETED)
+
+/htdocs/modules/pm/language/english/admin.php
+- renamed _PM_AM_* -> _AM_PM_* (8 constants, e.g. _PM_AM_PRUNE -> _AM_PM_PRUNE)
+
+/htdocs/modules/pm/language/english/modinfo.php
+- renamed _PM_MI_* -> _MI_PM_* (18 constants, e.g. _PM_MI_NAME -> _MI_PM_NAME)
+
+================================
+2026/05/17: Version 2.7.1-Betas/RC1
+================================
+/htdocs/modules/system/language/english/admin/blocksadmin.php
+- added define('_AM_SYSTEM_BLOCKS_INVALID_CLONE', 'Invalid block parameters.');
+
+
+================================
+2025/03/30: Version 2.7.0-Betas (previously released as 2.5.12-Betas)
+================================
+/htdocs/install/language/english/install.php
+- added define('MISSING_REQUIRED_EXTENSIONS', 'Required PHP extensions are missing');
+- added define('MISSING_REQUIRED_EXTENSIONS_MSG', 'XOOPS cannot be installed because the following mandatory PHP extension(s) are not available: %s. Enable them in your PHP configuration (php.ini) and restart your web server, then reload this page.');
+
+/htdocs/modules/system/language/english/admin.php
+- added define('_AM_SYSTEM_MENUS', 'Menus');
+- added define('_AM_SYSTEM_MENUS_DESC', 'Manage site navigation menus');
+
+/htdocs/modules/system/language/english/admin/modulesadmin.php
+- added define('_AM_SYSTEM_MODULES_CONFIG_DATA_INVALID', ' ERROR: Skipped malformed config entry %s. ');
+
+/htdocs/modules/system/language/english/modinfo.php
+- added define('_MI_SYSTEM_MENUS_ACTIVE', 'Enable Menu System');
+- added define('_MI_SYSTEM_MENUS_ACTIVE_DESC', 'Enable the built-in menu management system for site navigation');
+
+/htdocs/modules/system/language/english/admin/menus.php (NEW FILE)
+- added define('_AM_SYSTEM_MENUS_NAV_MAIN', 'Menu Manager');
+- added define('_AM_SYSTEM_MENUS_NAV_BACK', 'Back to Menu List');
+- added define('_AM_SYSTEM_MENUS_NAV_CATEGORY', 'Category View');
+- added define('_AM_SYSTEM_MENUS_NAV_TIPS', '<strong>Tips:</strong><ul>...');
+- added define('_AM_SYSTEM_MENUS_ACTIVE', 'Active');
+- added define('_AM_SYSTEM_MENUS_ACTIVE_YES', 'Enabled');
+- added define('_AM_SYSTEM_MENUS_ACTIVE_NO', 'Disabled');
+- added define('_AM_SYSTEM_MENUS_SAVED', 'Saved successfully');
+- added define('_AM_SYSTEM_MENUS_DELETED', 'Deleted successfully');
+- added define('_AM_SYSTEM_MENUS_ORDER_SAVED', 'Order saved');
+- added define('_AM_SYSTEM_MENUS_LISTCAT', 'List Categories');
+- added define('_AM_SYSTEM_MENUS_LISTITEM', 'List Items');
+- added define('_AM_SYSTEM_MENUS_ADDCAT', 'Add Category');
+- added define('_AM_SYSTEM_MENUS_EDITCAT', 'Edit Category');
+- added define('_AM_SYSTEM_MENUS_DELCAT', 'Delete Category');
+- added define('_AM_SYSTEM_MENUS_CATTITLE', 'Category Title');
+- added define('_AM_SYSTEM_MENUS_CATTITLE_DESC', 'A language constant name (e.g. MENUS_HOME) can be used here so the label is translatable.');
+- added define('_AM_SYSTEM_MENUS_CATPREFIX', 'Prefix (HTML)');
+- added define('_AM_SYSTEM_MENUS_CATPREFIX_DESC', 'Optional markup shown before the category title, such as a Font Awesome icon.');
+- added define('_AM_SYSTEM_MENUS_CATSUFFIX', 'Suffix (HTML)');
+- added define('_AM_SYSTEM_MENUS_CATSUFFIX_DESC', 'Optional markup shown after the category title.');
+- added define('_AM_SYSTEM_MENUS_CATURL', 'URL');
+- added define('_AM_SYSTEM_MENUS_CATURL_DESC', 'Link for the category itself, such as "index.php" or an absolute URL.');
+- added define('_AM_SYSTEM_MENUS_CATTARGET', 'Link Target');
+- added define('_AM_SYSTEM_MENUS_CATPOSITION', 'Position');
+- added define('_AM_SYSTEM_MENUS_DELCAT_CONFIRM', 'Are you sure you want to delete the category "%s" and all its items?');
+- added define('_AM_SYSTEM_MENUS_ADDITEM', 'Add Item');
+- added define('_AM_SYSTEM_MENUS_EDITITEM', 'Edit Item');
+- added define('_AM_SYSTEM_MENUS_DELITEM', 'Delete Item');
+- added define('_AM_SYSTEM_MENUS_ITEMTITLE', 'Item Title');
+- added define('_AM_SYSTEM_MENUS_ITEMTITLE_DESC', 'A language constant name can be used here so the label is translatable.');
+- added define('_AM_SYSTEM_MENUS_ITEMPREFIX', 'Prefix (HTML)');
+- added define('_AM_SYSTEM_MENUS_ITEMPREFIX_DESC', 'Optional markup shown before the item title, such as a Font Awesome icon.');
+- added define('_AM_SYSTEM_MENUS_ITEMSUFFIX', 'Suffix (HTML)');
+- added define('_AM_SYSTEM_MENUS_ITEMSUFFIX_DESC', 'Optional markup shown after the item title. Supports the <{xoInboxCount}> placeholder.');
+- added define('_AM_SYSTEM_MENUS_ITEMURL', 'URL');
+- added define('_AM_SYSTEM_MENUS_ITEMTARGET', 'Link Target');
+- added define('_AM_SYSTEM_MENUS_ITEMPOSITION', 'Position');
+- added define('_AM_SYSTEM_MENUS_ITEMPARENT', 'Parent Item');
+- added define('_AM_SYSTEM_MENUS_ITEMCATEGORY', 'Category');
+- added define('_AM_SYSTEM_MENUS_DELITEM_CONFIRM', 'Are you sure you want to delete the item "%s" and its sub-items?');
+- added define('_AM_SYSTEM_MENUS_TARGET_SELF', 'Same window');
+- added define('_AM_SYSTEM_MENUS_TARGET_BLANK', 'New window');
+- added define('_AM_SYSTEM_MENUS_PERMISSION_VIEW_CATEGORY', 'Groups that can see this category');
+- added define('_AM_SYSTEM_MENUS_PERMISSION_VIEW_CATEGORY_DESC', 'Users must have category access before any of its items become visible.');
+- added define('_AM_SYSTEM_MENUS_PERMISSION_VIEW_ITEM', 'Groups that can see this item');
+- added define('_AM_SYSTEM_MENUS_PERMISSION_VIEW_ITEM_DESC', 'Item permissions are checked after the parent category permission.');
+- added define('_AM_SYSTEM_MENUS_ERROR_CATNOTFOUND', 'Category not found');
+- added define('_AM_SYSTEM_MENUS_ERROR_CATPROTECTED', 'Cannot delete a protected category');
+- added define('_AM_SYSTEM_MENUS_ERROR_CATINACTIVE', 'Cannot activate: the category is inactive');
+- added define('_AM_SYSTEM_MENUS_ERROR_ITEMNOTFOUND', 'Item not found');
+- added define('_AM_SYSTEM_MENUS_ERROR_ITEMPROTECTED', 'Cannot delete a protected item');
+- added define('_AM_SYSTEM_MENUS_ERROR_ITEMPARENT', 'Invalid parent item selected');
+- added define('_AM_SYSTEM_MENUS_ERROR_ITEMCYCLE', 'Cannot set parent: it would create a circular reference');
+- added define('_AM_SYSTEM_MENUS_ERROR_ITEMDEPTH', 'Maximum nesting depth (3 levels) exceeded');
+- added define('_AM_SYSTEM_MENUS_ERROR_PARENTINACTIVE', 'Cannot activate: the parent item is inactive');
+- added define('_AM_SYSTEM_MENUS_ERROR_NOITEMS', 'There are no submenu items in this category.');
+- added define('_AM_SYSTEM_MENUS_ERROR_ITEMEDIT', 'Enable this item before editing it');
+- added define('_AM_SYSTEM_MENUS_ERROR_ITEMDISABLE', 'Enable this item before deleting it');
+- added define('MENUS_HOME', 'Home');
+- added define('MENUS_ADMIN', 'Administration');
+- added define('MENUS_ACCOUNT', 'Account');
+- added define('MENUS_ACCOUNT_EDIT', 'Edit Account');
+- added define('MENUS_ACCOUNT_LOGIN', 'Login');
+- added define('MENUS_ACCOUNT_LOGOUT', 'Logout');
+- added define('MENUS_ACCOUNT_REGISTER', 'Sign Up');
+- added define('MENUS_ACCOUNT_MESSAGES', 'Messages');
+- added define('MENUS_ACCOUNT_NOTIFICATIONS', 'Notifications');
+- added define('MENUS_ACCOUNT_TOOLBAR', 'Toolbar');
+
+/htdocs/modules/system/constants.php
+- added define('XOOPS_SYSTEM_MENUS', 19);
+
+/htdocs/modules/system/language/english/blocks.php
+-added define('_MB_SYSTEM_WAITING_CONTENT_DEPRECATED', "Block 'Waiting Contents' is deprecated since XOOPS 2.5.11, please use Waiting module");
+
+/htdocs/install/language/english/welcome.php
+- updated PHP & MySQL versions
+
+/htdocs/modules/pm/language/english/main.php
+- updated define('_PM_EMAIL_DESC', 'Dear %s, this is a message transfered from your account at ' . $GLOBALS['xoopsConfig']['sitename']);
+- updated define('_PM_EMAIL_DESC', 'Dear %s, this is a message transferred from your account at ' . $GLOBALS['xoopsConfig']['sitename']);
+
+/htdocs/language/english/user.php
+- updated define('_US_SORRYNOTFOUND', 'Sorry, no corresponding user info was found.');
+- updated define('_US_SORRYNOTFOUND', 'If an account matches the information provided, we will process your request. If you do not receive an email shortly, please check your spam folder or contact the site administrator.');
+
+- updated define('_US_PWDMAILED', 'Password for %s mailed.');
+- updated define('_US_PWDMAILED', 'If an account exists for this email, you will receive password reset instructions. Check your spam folder if needed or contact the site administrator.');
+
+- updated define('_US_CONFMAIL', 'Confirmation email for %s mailed.');
+- updated define('_US_CONFMAIL', 'If an account exists for this email, you will receive password reset instructions. Check your spam folder if needed or contact the site administrator.');
+
+/htdocs/class/xoopseditor/tinymce5/language/english.php
+- renamed _XOOPS_EDITOR_TINYMCE_LANGUAGE5 to _XOOPS_EDITOR_TINYMCE5_LANGUAGE
+
+/htdocs/modules/system/themes/transition/language/english/admin.php
+- renamed _OXYGEN_Server_API to _OXYGEN_SERVER_API
+
+/htdocs/modules/system/language/english/admin/preferences.php.
+- added define('_MD_AM_SENDMAIL_NOT_FOUND', 'Sendmail binary not found. Please check your server configuration.');
+- added define('_MD_AM_SENDMAIL_HELP_MISSING_BIN', 'No valid sendmail-compatible binary was detected. Install an MTA (e.g. Postfix, msmtp) or switch to SMTP in Preferences.');
+
+/htdocs/modules/system/language/english/admin/users.php
+- added define('_AM_SYSTEM_USERS_UNKNOWN_GROUP', 'Unknown group');
+
+/htdocs/modules/system/language/english/comment.php
+- added define('_CM_ADDCOMMENT', 'Add Comment');
+
+
+/htdocs/install/language/english/install.php
+- added define('_WEBSITE_NAME', 'XOOPS Site');
+- added define('_WEBSITE_SLOGAN', 'Just use it!');
+- added define('_WEBSITE_META_KEYWORDS', 'xoops, web application framework, cms, content management system');
+- added define('_WEBSITE_FOOTER', "Powered by XOOPS © 2001-{X_YEAR} <a href='https://xoops.org' rel='external' title='The XOOPS Project'>The XOOPS Project</a>");
+- added define('_WEBSITE_COPYRIGHT', 'Copyright © 2001-{X_YEAR}');
+- added define('_WEBSITE_DESCRIPTION', 'XOOPS is a dynamic Object Oriented based open source portal script written in PHP.');
+- added define('_WEBSITE_CENSOR_REPLACE', 'OOPS');
+
+
+================================
+2023/10/01: Version 2.5.11-Final
+================================
+/language/english/uploader.php
+-added define('_ER_UP_MODE_NOT_CHANGED', 'File uploaded, but could not change the mode');
+
+================================
+2023/10/01: Version 2.5.11-RC3
+================================
+
+CHANGED FILES:
+upgrade/language/english/upgrade.php
+upgrade/language/english/smarty3.php
+
+htdocs/class/xoopseditor/tinymce/language/english.php
+- added define('_FAILGETIMG', 'Failed to get image %s');
+
+/htdocs/modules/system/language/english/modinfo.php
+- added define('_MI_DEFAULT_NOTIFICATION_METHOD_DISABLE', 'Temporarily disable');
+- added define('_MI_DEFAULT_NOTIFICATION_METHOD_EMAIL', 'Email');
+- added define('_MI_DEFAULT_NOTIFICATION_METHOD_PM', 'Private message');
+
+/htdocs/modules/system/language/english/admin/preferences.php
+- added define('_MD_AM_DEFAULT_NOTIFICATION_METHOD', 'Default notification method');
+- added define('_MD_AM_DEFAULT_NOTIFICATION_METHOD_DESC', 'For new users when they subscribe to notifications from, e.g., a forum.');
+- added define('_MD_AM_MODULEPREF',
+
+
+================================
+2023/03/19: Version 2.5.11-RC1
+================================
+
+CHANGED FILES:
+htdocs/language/english/global.php
+- added define('_DB_QUERY_ERROR', 'Query Failed! SQL: %s - Error: ');
+- added define('_PRINT', 'Print');
+- added define('_PDF', 'PDF');
+- added define('_OFF', 'Off');
+
+================================
+2021/09/02: Version 2.5.11-Betas
+================================
+
+CHANGED FILES:
+htdocs/language/english/admin.php
+- added define('_AD_WARNING_NO_XML', 'The PHP XML Extension is required for this function.');
+
+htdocs/xoops_lib/modules/protector/language/english/admin.php
+- added define('_AM_ADMINSTATS_LAST_MONTH', 'Last Month');
+- added define('_AM_ADMINSTATS_LAST_WEEK', 'Last Week');
+- added define('_AM_ADMINSTATS_LAST_DAY', 'Last Day');
+- added define('_AM_ADMINSTATS_LAST_HOUR', 'Last Hour');
+
+htdocs/language/english/global.php
+- added define('_PRINT', 'Print');
+- added define('_PDF', 'PDF');
+- added define('_OFF', 'Off');
+- changed define('_ON', 'On'); //from 'on'
+
+htdocs/language/english/global.php
+- changed define('_SIZE', 'Size'); // font size
+- changed define('_FONT', 'Font'); // font family
+- changed define('_COLOR', 'Color'); // font color
+
+htdocs/install/language/english/install.php
+- added define('ERR_COPY_CONFIG_FILE', 'Could not copy the configuration file %s');
+
+htdocs/install/language/english/welcome.php
+- changed recommended PHP & MySQL versions, links changed to "https:"
+
+htdocs/modules/system/language/english/admin/preferences.php
+- changed define('_MD_AM_SMTPHOSTDESC', 'Either a single hostname or multiple semicolon-delimited hostnames.<br>You can also specify a different port for each host by using this format: [hostname:port] (e.g. "smtp1.example.com:25;smtp2.example.com").<br>You can also specify encryption type, for example: (e.g. "tls://smtp1.example.com:587;ssl://smtp2.example.com:465").<br>Hosts will be tried in order.');
+
+htdocs/modules/system/language/english/help/blocksadmin.html
+
+htdocs/modules/system/language/english/admin/modulesadmin.php
+- changed define('_AM_SYSTEM_MODULES_ADMIN', 'XOOPS Module Administration');
+
+NEW FILES:
+htdocs/themes/xswatch4/language/english/main.php
+Started as copy of xswatch/language/english/main.php then:
+- added define('THEME_TOOLBAR_DEBUGMODE', 'Debug Mode');
+- added define('THEME_TOOLBAR_THIS_MODULE', 'This Module');
+- added define('THEME_PERMISSIONS_LEGEND', 'Permissions &amp; Legend');
+- added define('THEME_INBOX_ALERT', 'PM Alert');
+- added define('THEME_INBOX_LINK', 'Click here to view your Inbox!');
+- added define('THEME_EVENT_DOWNLOADS', 'Event Downloads');
+- added define('THEME_FILE_NAME', 'File');
+- added define('THEME_FILE_SIZE', 'Size');
+- added define('THEME_CONTROL_NEXT', 'Next');
+- added define('THEME_CONTROL_PREVIOUS', 'Previous');
+
+htdocs/language/english/user.php
+- added define('_US_DESCRIPTIONMIN', 'Minimum required length: %s');
+- added define('_US_DESCRIPTIONMAX', 'Maximum length: %s');
+
+htdocs/modules/system/language/english/admin/mailusers.php
+- added define('_AM_SYSTEM_MAILUSERS_MAILTAGS5', '{X_NAME} will print name or uname if empty');
+
+htdocs/modules/system/language/english/admin/images.php
+- added define("_AM_SYSTEM_IMAGES_SCATDELNG","Can't delete this category");
+
+htdocs/modules/system/language/english/admin/modulesadmin.php
+- added define('_AM_SYSTEM_MODULES_INSTALL_THISMODULE', 'This Module Admin');
+
+DELETED FILES:
+htdocs/modules/system/language/english/admin/users.php
+- deleted define('_AM_SYSTEM_USERS_MODIFYUSER', 'Modify User');
+- deleted define('_AM_SYSTEM_USERS_DELUSER', 'Delete User');
+- deleted define('_AM_SYSTEM_USERS_GO', 'Go!');
+
+================================
+2019/04/29: Version 2.5.10 Final
+================================
+ADDED/DELETED DEFINES:
+htdocs/xoops_lib/modules/protector/language/english/admin.php
+- added define('_AM_LABEL_BAN_BY_IP', 'Ban the IPs on checked records:');
+- added define('_AM_BUTTON_BAN_BY_IP', 'IP Ban!');
+- added define('_AM_JS_BANCONFIRM', 'IP Bans OK?');
+- added define('_AM_MSG_BANNEDIP', 'IPs are banned');
+- added define('_AM_ADMINSTATS_TITLE', 'Protector Log Summary');
+
+htdocs/xoops_lib/modules/protector/language/english/modinfo.php
+- added define($constpref . '_ADMINSTATS', 'Overview');
+- added define($constpref . '_BANIP_TIME0DSC', 'Suspension time in seconds for automatic IP bans');
+
+htdocs/language/english/uploader.php
+- added define('_ER_UP_INDEXNOTSET', 'Attempt to fetch multiple file, index must be set.');
+
+htdocs/language/english/admin.php
+- added define('_AD_WARNING_OLD_PHP', 'WARNING: Consider upgrading to a newer version of PHP. Version %s or newer is recommended and will be required in future XOOPS versions.');
+
+CHANGED DEFINES
+htdocs/xoops_lib/modules/protector/language/english/admin.php
+- define('_AM_TXT_HOWTOCHANGEDB',"If you want to change prefix,<br> edit %s/data/secure.php manually.<br><br>define('XOOPS_DB_PREFIX', '<b>%s</b>');");
+
+htdocs/install/english/welcome.php
+- changed recommended PHP version, added Special Notes section for SELinux
+
+/home/richard/sites/x258i/htdocs/Frameworks/moduleclasses/moduleadmin/language/english/main.php
+- in define of '_AM_MODULEADMIN_ADMIN_FOOTER', changed XOOPS links to 'https://xoops.org'
+
+NEW FILES:
+n/a
+
+===============================
+2017/08/01: Version 2.5.9 Final
+===============================
+ADDED/DELETED DEFINES
+
+htdocs/Frameworks/moduleclasses/moduleadmin/language/english/main.php
+- added define('_AM_MODULEADMIN_ABOUT_AMOUNT', 'Amount');
+- added define('_AM_MODULEADMIN_ABOUT_AMOUNT_TTL', 'Please enter USD amount e.g. $25.00');
+- added define('_AM_MODULEADMIN_ABOUT_AMOUNT_CURRENCY', 'USD');
+- added define('_AM_MODULEADMIN_ABOUT_AMOUNT_SUGGESTED', '25.00');
+- added define('_AM_MODULEADMIN_ABOUT_AMOUNT_PATTERN', '\\$?[0-9]+(,[0-9]{3})*(\\.[0-9]{0,2})?$');
+- added define('_AM_MODULEADMIN_ABOUT_DONATE_IMG_ALT', 'Donate using PayPal or a major credit card online!');
+
+htdocs/install/language/english/install.php
+*NOTE* The installer was significantly changed, so this file should be reviewed closely
+- added define("CURL_HTTP", "Client URL Library (cURL)");
+- added define('XOOPS_COOKIE_DOMAIN_LABEL', 'Cookie Domain for the Website');
+- added define('XOOPS_COOKIE_DOMAIN_HELP', 'Domain to set cookies. May be blank, the full host from the URL (www.example.com), or the registered domain without subdomains (example.com) to share across subdomains (www.example.com and blog.example.com.)');
+- added define('INTL_SUPPORT', 'Internationalization functions');
+- added define('XOOPS_SOURCE_CODE', "XOOPS on GitHub");
+- added define('XOOPS_INSTALLING', 'Installing');
+- added define('XOOPS_ERROR_ENCOUNTERED', 'Error');
+- added define('XOOPS_ERROR_SEE_BELOW', 'See below for messages.');
+- added define('MODULES_AVAILABLE', 'Available Modules');
+- added define('INSTALL_THIS_MODULE', 'Add %s');
+
+htdocs/install/language/english/finish.php
+- change to refer new users to xoops.org for information on modules and themes
+
+htdocs/language/english/global.php
+- added define('_UPLOAD', 'Upload');
+- added define('_SELECTFILES', 'Select files');
+- added define('_DROPFILESHERE', 'Drop files here');
+- added define('_RETRY', 'Retry');
+- added define('_OK', 'Ok');
+- added define('_FORMATPROGRESS', '{percent}% of {total_size}');
+- added define('_FAILUPLOAD', 'Upload failed!');
+- added define('_WAITINGFORRESPONSE', 'Processing...');
+- added define('_PAUSED', 'Paused');
+- added define('_PROCESSINGDROPPEDFILES', 'Processing dropped files...');
+- added define('_TYPEERROR', '{file} has an invalid extension. Valid extension(s): {extensions}!');
+- added define('_SIZEERROR', '{file} is too large, maximum file size is {sizeLimit}!');
+- added define('_MINSIZEERROR', '{file} is too small, minimum file size is {minSizeLimit}!');
+- added define('_EMPTYERROR', '{file} is empty, please select files again without it!');
+- added define('_NOFILESERROR', 'No files to upload!');
+- added define('_TOOMANYITEMSERROR', 'Too many items ({netItems}) would be uploaded.  Item limit is {itemLimit}!');
+- added define('_MAXHEIGHTIMAGEERROR', 'Image is too tall!');
+- added define('_MAXWIDTHIMAGEERROR', 'Image is too wide!');
+- added define('_MINHEIGHTIMAGEERROR', 'Image is not tall enough!');
+- added define('_MINWIDTHIMAGEERROR', 'Image is not wide enough!');
+- added define('_RETRYFAILTOOMANYITEMS', 'Retry failed - you have reached your file limit!');
+- added define('_ONLEAVE', 'The files are being uploaded, if you leave now the upload will be canceled!');
+- added define('_UNSUPPORTEDBROWSERIOS8SAFARI', 'Unrecoverable error - this browser does not permit file uploading of any kind due to serious bugs in iOS8 Safari.  Please use iOS8 Chrome until Apple fixes these issues!');
+
+htdocs/language/english/uploader.php
+- added define('_ER_UP_INISIZE', 'The uploaded file exceeds the upload_max_filesize directive in php.ini');
+- added define('_ER_UP_FORMSIZE', 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form');
+- added define('_ER_UP_PARTIAL', 'The uploaded file was only partially uploaded');
+- added define('_ER_UP_NOFILE', 'No file was uploaded');
+- added define('_ER_UP_NOTMPDIR', 'Missing a temporary folder');
+- added define('_ER_UP_CANTWRITE', 'Failed to write file to disk');
+- added define('_ER_UP_EXTENSION', 'File upload stopped by extension. View phpinfo()');
+- added define('_ER_UP_UNKNOWN', 'Unknown upload error');
+
+htdocs/language/english/user.php
+- deleted define('_US_USECOOKIE', 'Store my user name in a cookie for 1 year');
+
+htdocs/modules/profile/language/english/admin.php
+- added define('_PROFILE_AM_CANNOTDEACTIVATEWEBMASTERS', 'You cannot deactivate Webmaster account');
+
+htdocs/modules/system/language/english/admin/comments.php
+- added define('_MP_DELETECOUNT', 'The number of members in the group is too big ( > 4,000) ');
+
+htdocs/modules/system/language/english/admin/userrank.php
+- added define('_AM_SYSTEM_USERRANK_ERROR', 'Errors');
+
+upgrade/language/english/upgrade.php
+- added define('_LANGUAGE', 'Language');
+- added define('_SUPPORT', 'Support');
+- added define('_XOOPS_SOURCE_CODE', 'XOOPS on GitHub');
+- added define('_PATCH_COUNT', 'Patches Sets');
+- added define('_USERNAME_PLACEHOLDER', 'Your Username');
+- added define('_PASSWORD_PLACEHOLDER', 'Your Password');
+- added define('_CONTINUE', 'Continue');
+- added define('XOOPS_ERROR_ENCOUNTERED', 'Error');
+- added define('XOOPS_ERROR_SEE_BELOW', 'See below for messages.');
+
+htdocs/themes/xbootstrap/language/english/main.php
+- added define("THEME_USER_WELCOME", "Welcome");
+
+NEW FILES:
+- htdocs/modules/system/themes/transition/language/english/admin.php
+- htdocs/modules/system/themes/transition/language/english/localsupport.php
+
+- upgrade/language/english/
+*NOTE* The upgrade code was significantly changed, so these files should be reviewed closely
+- moved all per patch language files from patch directories to upgrade/language/*
+  i.e. upgrade/upd-2.0.18-to-2.3.0/language/english.php became
+  upgrade/language/english/upd-2.0.18-to-2.3.0.php
+
+- upgrade/language/english/support.php (same as  htdocs/install/language/english/support.php)
+- upgrade/language/english/welcome.php
+
+===============================
+2016/05/27: Version 2.5.8
+===============================
+ADDED/DELETED DEFINES
+
+/install/language/english/install.php
+/modules/system/language/english/admin/modulesadmin.php
+- added define('_AM_SYSTEM_MODULES_INSTALL_MORE',"Install more modules");
+
+/modules/system/language/english/admin/users.php
+define('_AM_SYSTEM_USERS_ACTIVATE', 'Activate User');
+
+/modules/system/language/english/blocks.php
+define('_MB_SYSTEM_BLOCK_HEIGHT',"Block Height (lines)");
+
+install/language/english/install.php
+define('CHMOD_CHGRP_REPEAT', 'Retry');
+define('CHMOD_CHGRP_IGNORE', 'Use Anyway');
+define('CHMOD_CHGRP_ERROR', 'Installer may not be able to write the configuration file %1$s.<p>PHP is writing files under user %2$s and group %3$s.<p>The dire
+
+CHANGED DEFINES
+xoops_lib/modules/protector/language/english/modinfo.php
+define($constpref . '_HIJACK_TOPBITDSC', ...
+
+/modules/system/themes/default/language/english/admin.php
+define('_OXYGEN_CODESVN', 'Code Repository');
+
+install/language/english/install.php
+define('SAVED_MAINFILE', 'Settings saved');
+define('ERR_NEED_WRITE_ACCESS', 'The server must be given write access to the following files and folders<br />(i.e. <em>chmod 775 directory_name</em> on a UNIX/LINUX server)<br />If they are not available or not created correctly, please create manually and set proper permissions.');
+define('ERR_COPY_MAINFILE', 'Could not copy the distribution file to %s');
+define('ERR_WRITE_MAINFILE', 'Could not write into %s. Please check the file permission and try again.');
+define('ERR_READ_MAINFILE', 'Could not open %s for reading');
+
+/modules/system/themes/zetadigme/language/english/admin.php
+define('_MD_CODESVN', 'Code Repository');
+
+NEW FILES:
+/language/english/stopwords.php
+/language/english/xmf.php
+
+UPDATED XoopsMailerLocal class example:
+htdocs/language/english/xoopsmailerlocal.php
+
+===============================
+2014/06/14: Version 2.5.7 Final
+===============================
+ADDED/DELETED DEFINES
+
+/install/language/english/install.php
+- added define('WRITTEN_LICENSE',"Written XOOPS %s License Key: <strong>%s</strong>");
+
+===============================
+2014/03/18: Version 2.5.7 RC1
+===============================
+ADDED/DELETED DEFINES
+
+/modules/system/language/english/admin.php
+- added define('_AM_SYSTEM_USAGE',"Usage");
+- added define('_AM_SYSTEM_ACTIVE',"Active");
+
+
+===============================
+2012/04/15: Version 2.5.5
+===============================
+ADDED/DELETED DEFINES
+
+/Frameworks/moduleclasses/moduleadmin/language/english/main.php
+- added define("_AM_MODULEADMIN_HOME", "Home");
+- added define("_AM_MODULEADMIN_DASHBOARD", "Dashboard");
+- added define("_AM_MODULEADMIN_ABOUT", "About");
+- added define("_AM_MODULEADMIN_PERMISSIONS", "Permissions");
+- added define("_AM_MODULEADMIN_ABOUT_RELEASEDATE","Released: ");
+- added define("_AM_MODULEADMIN_ABOUT_AUTHOR","Author: ");
+- added define("_AM_MODULEADMIN_ABOUT_CREDITS","Credits: ");
+- added define("_AM_MODULEADMIN_ABOUT_LICENSE","License: ");
+- added define("_AM_MODULEADMIN_ABOUT_AUTHOR_NAME","Author name: ");
+- added define("_AM_MODULEADMIN_ABOUT_AUTHOR_INFO","Author Info");
+- added define("_AM_MODULEADMIN_ADMIN_FOOTER", "<div class='center smallsmall italic pad5'>This module is maintained by the <a class='tooltip' rel='external' href='http://xoops.org/' title='Visit XOOPS Community'>XOOPS Community</a></div>");
+
+/language/english/calendar.php
+- added define("_CAL_FORMAT","Y-m-d");
+
+/xoops_lib/modules/protector/language/english/modinfo.php
+
+- added  define($constpref."_ADMINHOME","Home");
+- added define($constpref."_ADMINABOUT","About");
+- added define($constpref.'_STOPFORUMSPAM_ACTION','Stop Forum Spam');
+- added define($constpref.'_STOPFORUMSPAM_ACTIONDSC','Checks POST data against spammers registered on www.stopforumspam.com database. Requires php CURL lib.');
+
+
+/install/language/english/install.php
+- added define( "FILTER_FUNCTIONS", "Filter functions");
+
+/language/english/global.php
+- added define('_DBDATESTRING', 'Y-m-d');
+- added define('_DBTIMESTRING', 'H:i:s');
+- added define('_DBTIMESTAMPSTRING', 'Y-m-d H:i:s');
+
+/language/english/pmsg.php
+- added define('_PM_READ', 'Already Read');
+
+/modules/system/language/english/admin.php
+- added define("_AM_SYSTEM_UNINSTALL","Uninstall");
+
+SEE ALSO:
+/modules/profile/docs/lang_diff.txt
+
+===============================
+2011/11/17: Version 2.5.4
+===============================
+
+/Frameworks/moduleclasses/moduleadmin/language/english/main.php
+_AM_MODULEADMIN_CONFIG_DB
+_AM_MODULEADMIN_CONFIG_ADMIN
+
+===============================
+2011/10/10: Version 2.5.4 RC
+===============================
+
+NEW FILES:
+modules/pm/language/english/help/help.html
+modules/profile/language/english/help/help.html
+modules/protector/language/english/help/help.html
+
+ADDED/DELETED DEFINES
+
+/language/english/pmsg.php
+delete define('_PM_READ', 'Already Read');
+
+/language/english/user.php
+- added define('_US_SKYPE', 'Skype');
+- added define('_US_FACEBOOK', 'Facebook');
+
+/modules/pm/language/english/main.php
+- deleted define("_PM_RECEIVE","RECEIVE");
+- deleted define("_PM_POST","POST");
+- deleted define("_PM_READBOX","READBOX");
+- deleted define("_PM_RSAVEBOX","Receive_SAVEBOX");
+- deleted define("_PM_SENTBOX","SENTBOX");
+- deleted define("_PM_PSAVEBOX","Post_SAVEBOX");
+- deleted define("_PM_SAVED","Saved Successfully");
+- deleted define("_PM_TOC","From: ");
+- deleted define("_PM_UID","Sender's ID");
+
+/language/english/findusers.php
+- added define('_MA_USER_FACEBOOK', 'Facebook Link'); //TO DO
+- added define('_MA_USER_SKYPE', 'Skype Link');//TO DO
+
+/modules/pm/language/english/modinfo.php
+- added define("_MI_PM_ABOUT", "About");
+
+/modules/profile/language/english/admin.php
+- added define('_PROFILE_AM_ACTION', 'Action');
+
+/modules/profile/language/english/modinfo.php
+- added define("_PROFILE_MI_ABOUT", "About");
+- added define("_PROFILE_MI_HOME", "Home");
+
+
+/modules/system/language/english/admin/preferences.php
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_MD_AM_GENERAL","General Settings");
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_MD_AM_USERSETTINGS","User Info Settings");
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_MD_AM_METAFOOTER","Meta Tags and Footer");
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_MD_AM_CENSOR","Word Censoring Options");
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_MD_AM_SEARCH","Search Options");
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_MD_AM_MAILER","Email Setup");
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_MD_AM_AUTHENTICATION","Authentication Options");*/
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_TIPS_MD_AM_GENERAL","A faire");
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_TIPS_MD_AM_USERSETTINGS","A faire");
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_TIPS_MD_AM_METAFOOTER","A faire");
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_TIPS_MD_AM_CENSOR","A faire");
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_TIPS_MD_AM_SEARCH","A faire");
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_TIPS_MD_AM_MAILER","A faire");
+- deleted define("_AM_SYSTEM_PREFERENCES_NAV_TIPS_MD_AM_AUTHENTICATION","A faire");
+- deleted define("_MD_AM_LOADINGIMG", "Display loading... image?");
+- deleted define("_MD_AM_CHNGUTHEME", "Change all users' theme");
+
+/modules/system/language/english/admin/users.php
+- added define("_AM_SYSTEM_USERS_ACCEPT_EMAIL","Accept email from Admin");
+
+- deleted define("_AM_SYSTEM_USERS_NAV_MANAGER","Users Manager");
+- deleted define("_AM_SYSTEM_USERS_USERPOST","User Posts");
+- deleted define("_AM_SYSTEM_USERS_STORIES","Stories");
+- deleted define("_AM_SYSTEM_USERS_COMMENTS","Comments");
+- deleted define("_AM_SYSTEM_USERS_PTBBTSDIYT","Push the button below to synchronize data if you think the above user posts info does not seem to indicate the actual status");
+- deleted define("_AM_SYSTEM_USERS_CNGTCOM","Could not get total comments");
+- deleted define("_AM_SYSTEM_USERS_CNGTST","Could not get total stories");
+- deleted define("_AM_SYSTEM_USERS_LIST","List");
+- deleted define("_AM_SYSTEM_USERS_USERPOST","User Posts");
+- deleted define("_AM_SYSTEM_USERS_STORIES","Stories");
+- deleted define("_AM_SYSTEM_USERS_COMMENTS","Comments");
+- deleted define("_AM_SYSTEM_USERS_PTBBTSDIYT","Push the button below to synchronize data if you think the above user posts info does not indicate the actual status");
+- deleted define("_AM_SYSTEM_USERS_CNGTCOM","Could not get all comments");
+- deleted define("_AM_SYSTEM_USERS_CNGTST","Could not get all stories");
+- deleted define("_AM_SYSTEM_USERS_LIST","List");
+
+xoops_lib/modules/protector/language/english/admin.php
+- added define("_AM_ADV_REGISTERGLOBALS2","and place in it the line below:");
+
+CHANGED FILES:
+
+/modules/system/language/english/admin/users.php (Mamba)/
+/language/english/mail_template/activated.tpl
+/language/english/mail_template/adminactivate.tpl
+/language/english/mail_template/lostpass1.tpl
+/language/english/mail_template/lostpass2.tpl
+/language/english/mail_template/register.tpl
+/language/english/mail_template/welcome.tpl
+/modules/system/language/english/admin/avatars.php
+/modules/system/language/english/admin/banners.php
+/modules/system/language/english/admin/blocksadmin.php
+/modules/system/language/english/admin/comments.php
+/modules/system/language/english/admin/preferences.php
+/modules/system/language/english/admin/userrank.php
+/modules/system/language/english/admin/users.php
+/modules/system/language/english/help/mailusers.html
+/modules/system/language/english/help/preferences.html
+/modules/system/language/english/admin.php
+/modules/system/language/english/blocks.php
+/modules/system/language/english/modinfo.php
+/modules/system/themes/default/language/english/admin.php
+/modules/system/themes/zetadigme/language/english/admin.php
+/themes/suico/language/english/main.php
+/themes/zetagenesis/language/english/main.php
+
+
+===============================
+2011/10/05: Version 2.5.4 Beta
+===============================
+- updated several English translations (DCrussader/Mamba)
+- deleted language/english/calendar.php _CAL_DEF_DATE_FORMAT
+- deleted language/english/calendar.php _CAL_TT_DATE_FORMAT
+- deleted modules/system/language/english/admin/users.php _AM_SYSTEM_USERS_NAV_MANAGER
+- deleted modules/system/language/english/admin/preferences.php _MD_AM_LOADINGIMG
+- deleted modules/system/language/english/admin/preferences.php _MD_AM_CHNGUTHEME
+- deleted modules/pm/language/english/admin/main.php _PM_RECEIVE, _PM_POST, _PM_READBOX, _PM_RSAVEBOX, _PM_SENTBOX, _PM_PSAVEBOX, _PM_SAVED, _PM_TOC
+- added /modules/profile/language/english/admin.php _PROFILE_AM_ACTION
+- added /modules/profile/language/english/main.php _PROFILE_MI_ABOUT
+- added /modules/profile/language/english/main.php _PROFILE_MI_HOME
+- added /modules/pm/language/english/modinfo.php _MI_PM_ABOUT
+- added modules/system/language/english/admin/users.php _AM_SYSTEM_USERS_FACEBOOK, _AM_SYSTEM_USERS_SKYPE
+- added language/english/user.php _US_SKYPE, _US_FACEBOOK
+
+xoops_lib/modules/protector/language/english/modinfo.php
+- added define($constpref.'_STOPFORUMSPAM_ACTION','Stop Forum Spam');
+- added define($constpref.'_STOPFORUMSPAM_ACTIONDSC','Checks POST data against spammers registered on www.stopforumspam.com database. Requires php CURL lib.');
+
+
+
+===============================
+2011/09/06: Version 2.5.2 RC
+===============================
+ - added language/english/misc.php _MSC_CLICK_TO_OPEN_IMAGE, _MSC_RESIZED_IMAGE, _MSC_ORIGINAL_IMAGE
+ - added language/english/pmsg.php _PM_SURE_TO_DELETE, _PM_READ
+ - added modules/pm/language/english/admin/main.php _PM_READ, _PM_SUBJECT_ICONS
+ - modules\system/language/english/admin/tplsets.php _AM_SYSTEM_TEMPLATES_SET
+ - removed modules/system/themes/default/language/english/admin/admin.php _OXYGEN_XOOPSENGINE
+ - removed modules/system/language/english/admin/blocksadmin.php _AM_SYSTEM_BLOCKS_SAVE
+ - added language/english/calendar.php _CAL_DEF_DATE_FORMAT
+ - added language/english/calendar.php _CAL_TT_DATE_FORMAT
+
+===============================
+2011/03/15: Version 2.5.1 RC
+===============================
+
+Added Language constants:
+  modules/system/language/english/admin/images.php _AM_SYSTEM_IMAGES_URL
+  modules/system/themes/default/language/english/admin/admin.php _OXYGEN_XOOPSENGINE
+
+Modified Language constants:
+  modules/system/themes/default/language/english/admin/admin.php _OXYGEN_ABOUT_TEXT, _OXYGEN_WEBSITE
+  modules/system/language/english/helper/help_center.html, modulesadmin.html
+
+Removed Language constants:
+  modules/system/themes/default/language/english/admin/admin.php _OXYGEN_XGIFTSHOP, _OXYGEN_XDONATIONS, _OXYGEN_XDONATIONS_TEXT, _OXYGEN_KEY, _OXYGEN_LICENSE, _OXYGEN_SOURCEFORGE_TEXT, _OXYGEN_POWERED_BY
+  modules/system/themes/default/language/english/admin/admin.php _OXYGEN_XGIFTSHOP, _OXYGEN_XDONATIONS, _OXYGEN_XDONATIONS_TEXT, _OXYGEN_KEY, _OXYGEN_LICENSE, _OXYGEN_SOURCEFORGE_TEXT, _OXYGEN_POWERED_BY
